@@ -154,4 +154,9 @@ public class System implements Serializable, ISystem {
 		return true;
 	}
 
+	@Override
+	public String getSystemId() {
+		return id;
+	}
+
 }

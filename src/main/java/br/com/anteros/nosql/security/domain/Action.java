@@ -197,4 +197,9 @@ public class Action implements Serializable, IAction {
 		this.ativa = value;		
 	}
 
+	@Override
+	public String getActionId() {
+		return id;
+	}
+
 }

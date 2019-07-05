@@ -169,4 +169,9 @@ public class Resource implements Serializable, IResource {
 		return this;
 	}
 
+	@Override
+	public String getResourceId() {
+		return id;
+	}
+
 }

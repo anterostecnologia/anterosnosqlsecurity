@@ -22,6 +22,8 @@ import br.com.anteros.nosql.persistence.metadata.annotations.Entity;
 import br.com.anteros.nosql.persistence.metadata.annotations.Property;
 import br.com.anteros.nosql.persistence.metadata.annotations.Reference;
 import br.com.anteros.nosql.persistence.metadata.annotations.Transient;
+import br.com.anteros.persistence.metadata.annotation.Column;
+import br.com.anteros.persistence.metadata.annotation.Lob;
 import br.com.anteros.security.store.domain.IProfile;
 import br.com.anteros.security.store.domain.IUser;
 
@@ -110,6 +112,9 @@ public class User extends Security implements IUser {
 	 */
 	@Reference(lazy=true, value="perfil")
 	private Profile perfil;
+	
+	@Property(value="avatar")
+	private String avatar;
 
 	public Boolean getAlterarSenhaProximoLogin() {
 		return alterarSenhaProximoLogin;
@@ -255,14 +260,22 @@ public class User extends Security implements IUser {
 
 	@Override
 	public boolean isPasswordNeverExpire() {
-		// TODO Auto-generated method stub
-		return false;
+		return senhaNuncaExpira;
 	}
 
 	@Override
 	public IProfile getUserProfile() {
-		// TODO Auto-generated method stub
-		return null;
+		return (IProfile) perfil;
+	}
+
+	@Override
+	public String getUserId() {
+		return getId()+"";
+	}
+
+	@Override
+	public String getAvatar() {
+		return avatar;
 	}
 
 
