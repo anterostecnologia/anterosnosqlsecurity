@@ -115,7 +115,7 @@ public class Action implements Serializable, IAction {
 		return categoria;
 	}
 
-	public boolean isActive() {
+	public boolean isActionActive() {
 		return ativa;
 	}
 
@@ -193,7 +193,7 @@ public class Action implements Serializable, IAction {
 	}
 
 	@Override
-	public void setActive(boolean value) {
+	public void setActiveAction(boolean value) {
 		this.ativa = value;		
 	}
 
